@@ -128,7 +128,6 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\..\Documents\pugixml\src\pugixml.cpp" />
-    <ClCompile Include="fsutil.cpp" />
     <ClCompile Include="getmanifest.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Updater.cpp">

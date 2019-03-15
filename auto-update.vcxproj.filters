@@ -27,9 +27,6 @@
     <ClCompile Include="Updater.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="fsutil.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="getmanifest.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
