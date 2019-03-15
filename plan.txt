@@ -1,0 +1,43 @@
+
+First let's create a simple updater mechanism.
+
+We won't do diffing of file content for now--just replace the whole thing.
+
+Send a manifest.
+The manifest contains a list of rows. Each row represents a change that should happen.
+This manifest is requested and acted on by the updater stub.
+
+Let's use XML for the manifest because
+	-it is a reasonably easily parsed format on various platforms with various technologies
+	-it is inherently flexible
+	-data in it is compartmentalized (inside tags), meaning bad or unrecognized pieces of data can simply be skipped
+
+<manifest>
+	<version>arbitrary-version-string</version>						<!-- A string identifying this patch version. Not essential. -->
+	<date>patch-published-date</date>								<!-- The date this patch became available. Not essential. -->
+	<file-prefix>https://123.45.67.89/patches/1.23/</file-prefix>	<!-- File paths to be downloaded will be appended to this URL and an HTTP request made.-->
+
+	<file>															<!-- One of these blocks for each file. --> 
+		<action>add|delete</action>									<!-- Whether to add or delete the file. See below. -->
+		<path>relative-file-path</path>								<!-- See below. -->
+		<size>file-size-bytes</size>								<!-- See below. -->
+		<hash>file-hash</hash>										<!-- See below. -->
+	</file>
+
+</manifest>
+
+We process each line at a time.
+
+If the line begins with 'add'...
+
+	The file path is checked for existence. If it does not exist, the file is downloaded.
+	If it does exist, the file size, and finally the hash are checked to verify equality.
+	If any of these checks fail (i.e. show inequality) , the file is downloaded and replaces the existing one.
+	
+If the line begins with 'delete'...
+	The file is checked for existence and agreement with size and finally hash.
+	If equality is detected, the file is deleted as no longer necessary.
+	If equality is not detected, nothing happens.
+		We really don't want to delete a user's file that happens to have the same name as one of ours.
+
+		
