@@ -10,12 +10,12 @@
  *		"If you're using libcurl as a win32 DLL, you MUST use a CURLOPT_WRITEFUNCTION if you set this option or you will experience crashes."
  */
 
-void errorlog_write(const char* message, ...)
+void Updater::errorlog_write(const char* message, ...)
 {
 	printf(message);
 }
 
-bool getManifest(const char* URL, const char* localPath)
+bool Updater::getManifest(const char* URL, const char* localPath)
 {
 	FILE* file = nullptr;
 	errno_t fopenResult = fopen_s(&file, localPath, "w");
@@ -72,8 +72,6 @@ bool getManifest(const char* URL, const char* localPath)
 	}
 
 	success = true;
-	printf("Manifest has been downloaded successfully to %s.\n", localPath);
-	
 
 	cleanup:
 	curl_easy_cleanup(curlCtx);
@@ -87,7 +85,7 @@ bool getManifest(const char* URL, const char* localPath)
 	return success;
 }
 
-size_t writeCallback(char* ptr, size_t size, size_t nmemb, void* state)
+size_t Updater::writeCallback(char* ptr, size_t size, size_t nmemb, void* state)
 {
 	//size_t recvBytes = size * nmemb;
 	return fwrite(ptr, size, nmemb, (FILE*)state);

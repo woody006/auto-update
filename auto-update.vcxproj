@@ -83,7 +83,7 @@
     </ClCompile>
     <Link>
       <AdditionalDependencies>libcurl.lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <ShowProgress>LinkVerbose</ShowProgress>
+      <ShowProgress>NotSet</ShowProgress>
       <AdditionalLibraryDirectories>E:\Code\curl-7.64.0\builds\libcurl-vc-x86-release-dll-ipv6-sspi-winssl\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Link>
   </ItemDefinitionGroup>
@@ -128,9 +128,9 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\..\Documents\pugixml\src\pugixml.cpp" />
-    <ClCompile Include="getmanifest.cpp" />
-    <ClCompile Include="main.cpp" />
-    <ClCompile Include="Updater.cpp">
+    <ClCompile Include="src\getmanifest.cpp" />
+    <ClCompile Include="src\main.cpp" />
+    <ClCompile Include="src\Updater.cpp">
       <LanguageStandard Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">stdcpp14</LanguageStandard>
     </ClCompile>
   </ItemGroup>
