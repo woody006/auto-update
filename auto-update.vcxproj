@@ -70,8 +70,12 @@
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
-    <IncludePath>E:\Code\boost_1_69_0;E:\Code\curl-7.64.0\builds\libcurl-vc-x86-release-dll-ipv6-sspi-winssl\include;$(IncludePath)</IncludePath>
-    <LibraryPath>E:\Code\boost_1_69_0\stage\lib;$(LibraryPath)</LibraryPath>
+    <IncludePath>$(BOOST_ROOT);$(LIBCURL_ROOT)/include;$(IncludePath)</IncludePath>
+    <LibraryPath>$(BOOST_ROOT)/stage/lib;$(LIBCURL_ROOT)/lib;$(LibraryPath)</LibraryPath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <IncludePath>$(BOOST_ROOT);$(LIBCURL_ROOT)/include;$(IncludePath)</IncludePath>
+    <LibraryPath>$(BOOST_ROOT)/stage/lib;$(LIBCURL_ROOT)/lib;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
@@ -94,6 +98,9 @@
       <SDLCheck>true</SDLCheck>
       <ConformanceMode>true</ConformanceMode>
     </ClCompile>
+    <Link>
+      <AdditionalDependencies>libcurl.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <ClCompile>
@@ -127,7 +134,6 @@
     <Text Include="plan.txt" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="..\..\..\Documents\pugixml\src\pugixml.cpp" />
     <ClCompile Include="src\getmanifest.cpp" />
     <ClCompile Include="src\main.cpp" />
     <ClCompile Include="src\Updater.cpp">

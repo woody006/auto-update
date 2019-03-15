@@ -18,16 +18,13 @@
     <Text Include="plan.txt" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="..\..\..\Documents\pugixml\src\pugixml.cpp">
+    <ClCompile Include="src\getmanifest.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="main.cpp">
+    <ClCompile Include="src\main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Updater.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="getmanifest.cpp">
+    <ClCompile Include="src\Updater.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

@@ -12,7 +12,7 @@ Updater::Updater(const std::wstring& path, const std::string& remoteUrl)
 void Updater::go()
 {
 	auto tempPath = boost::filesystem::temp_directory_path() /= boost::filesystem::unique_path("manifest%%%%%%.xml");
-	bool manifestOk = getManifest(remoteUrl.c_str(), "foo.html");// "C:\\Users\\geoff\\Source\\Repos\\auto-update\\Debug\\foo.html");
+	bool manifestOk = getManifest(remoteUrl.c_str(), "foo.html");
 	printf("Got manifest: %s\n", manifestOk ? "yes" : "no");
 }
 
