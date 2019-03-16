@@ -10,11 +10,6 @@
  *		"If you're using libcurl as a win32 DLL, you MUST use a CURLOPT_WRITEFUNCTION if you set this option or you will experience crashes."
  */
 
-void Updater::errorlog_write(const char* message, ...)
-{
-	printf(message);
-}
-
 bool Updater::getManifest(const char* URL, const char* localPath)
 {
 	FILE* file = nullptr;

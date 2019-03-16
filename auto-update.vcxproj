@@ -70,7 +70,7 @@
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
-    <IncludePath>$(BOOST_ROOT);$(LIBCURL_ROOT)/include;$(IncludePath)</IncludePath>
+    <IncludePath>$(BOOST_ROOT);$(LIBCURL_ROOT)/include;$(TINYXML_ROOT);$(IncludePath)</IncludePath>
     <LibraryPath>$(BOOST_ROOT)/stage/lib;$(LIBCURL_ROOT)/lib;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
@@ -86,9 +86,9 @@
       <LanguageStandard>stdcpp14</LanguageStandard>
     </ClCompile>
     <Link>
-      <AdditionalDependencies>libcurl.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>libcurl.lib;tinyxml2.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <ShowProgress>NotSet</ShowProgress>
-      <AdditionalLibraryDirectories>E:\Code\curl-7.64.0\builds\libcurl-vc-x86-release-dll-ipv6-sspi-winssl\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>$(LIBCURL_ROOT)/lib;$(TINYXML_ROOT)/tinyxml2/release-dll;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
@@ -134,6 +134,7 @@
     <Text Include="plan.txt" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="src\Manifest.cpp" />
     <ClCompile Include="src\getmanifest.cpp" />
     <ClCompile Include="src\main.cpp" />
     <ClCompile Include="src\Updater.cpp">
@@ -141,7 +142,8 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Updater.h" />
+    <ClInclude Include="src\Manifest.h" />
+    <ClInclude Include="src\Updater.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

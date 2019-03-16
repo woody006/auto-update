@@ -15,7 +15,7 @@ Let's use XML for the manifest because
 <manifest>
 	<version>arbitrary-version-string</version>						<!-- A string identifying this patch version. Not essential. -->
 	<date>patch-published-date</date>								<!-- The date this patch became available. Not essential. -->
-	<file-prefix>https://123.45.67.89/patches/1.23/</file-prefix>	<!-- File paths to be downloaded will be appended to this URL and an HTTP request made.-->
+	<fetch-prefix>https://123.45.67.89/patches/1.23/</fetch-prefix>	<!-- File paths to be downloaded will be appended to this URL and an HTTP request made.-->
 
 	<file>															<!-- One of these blocks for each file. --> 
 		<action>add|delete</action>									<!-- Whether to add or delete the file. See below. -->

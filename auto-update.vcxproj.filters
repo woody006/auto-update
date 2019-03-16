@@ -27,9 +27,15 @@
     <ClCompile Include="src\Updater.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="src\Manifest.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Updater.h">
+    <ClInclude Include="src\Manifest.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Updater.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
