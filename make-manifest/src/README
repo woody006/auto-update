@@ -1,0 +1,12 @@
+
+This is a command-line tool to produce a manifest file for patching.
+
+Usage:
+	make-manifest [input-path]
+
+This takes [path] as the root directory of the patch and creates 'manifest.xml' in the current directory.
+
+Usage:
+	make-manifest [input-path] -output [output-path]
+
+Customizes the output file's path.
